@@ -1,6 +1,6 @@
 package com.AppFood.Project.Serviceimple;
 
-import com.AppFood.Project.Constant.Utils.CffeConstant;
+import com.AppFood.Project.Constant.Utils.CafeConstant;
 import com.AppFood.Project.Dao.UserDao;
 import com.AppFood.Project.POJO.User;
 import com.AppFood.Project.Service.UserService;
@@ -26,37 +26,40 @@ public class UserServiceimpl implements UserService {
         try {
 
         if (validateSignUpMap(requestMap)){
-User user=userDao.findByEmailId(requestMap.get("email"));
-if (Objects.isNull(user)){
-    userDao.save(getUserFromMap(requestMap));
-    return CaffeUtils.getResponseEntity("Successfully Registered.",HttpStatus.OK);
-}
-else {
-    return CaffeUtils.getResponseEntity("Email already exist.",HttpStatus.BAD_REQUEST);
-}
+            User user=userDao.findByEmailId(requestMap.get("email"));
+            if (Objects.isNull(user)){
+                userDao.save(getUserFromMap(requestMap));
+             return CaffeUtils.getResponseEntity("Successfully Registered.",HttpStatus.OK);
+
+            }
+            else {
+                return CaffeUtils.getResponseEntity("Email already exist.",HttpStatus.BAD_REQUEST);
+            }
         }
         else {
-            return CaffeUtils.getResponseEntity(CffeConstant.INVALID_DATA, HttpStatus.BAD_REQUEST);
+            return CaffeUtils.getResponseEntity(CafeConstant.INVALID_DATA, HttpStatus.BAD_REQUEST);
         }
-    }catch (Exception ex){
-        ex.printStackTrace();
+        }catch (Exception ex){
+            ex.printStackTrace();
         }
-        return CaffeUtils.getResponseEntity(CffeConstant.SOMETHING_WENT_WRONG,HttpStatus.INTERNAL_SERVER_ERROR);
+        return CaffeUtils.getResponseEntity(CafeConstant.SOMETHING_WENT_WRONG,HttpStatus.INTERNAL_SERVER_ERROR);
     }
-    private boolean validateSignUpMap(Map<String,String>requestMap){
-       if (requestMap.containsKey("name")&& requestMap.containsKey("contactNumber")&& requestMap.containsKey("email")&& requestMap.containsKey("Password"))
-        {
-           return true;
 
-        }
-    return false;
+    private boolean validateSignUpMap(Map<String,String>requestMap){
+       if (requestMap.containsKey("name")&& requestMap.containsKey("contactNumber")
+               && requestMap.containsKey("email")&& requestMap.containsKey("Password")){
+           return true;
+        }else {
+           return false;
+       }
     }
+
     private User getUserFromMap(Map<String,String> requestMap){
         User user=new User();
         user.setName(requestMap.get("name"));
         user.setContactNumber(requestMap.get("contactNumber"));
         user.setEmail(requestMap.get("email"));
-        user.setPassword(requestMap.get("password"));
+        user.setPassword(requestMap.get("Password"));
         user.setStatus("false");
         user.setRole("user");
         return user;

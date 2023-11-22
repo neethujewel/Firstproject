@@ -1,9 +1,9 @@
-package com.AppFood.Project.Serviceimple;
+//package com.AppFood.Project.Serviceimple;//package com.AppFood.Project.Serviceimple;
 
-import com.AppFood.Project.Constant.Utils.CffeConstant;
-import com.AppFood.Project.Service.BillService;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
+//import com.AppFood.Project.Constant.Utils.CffeConstant;
+//import com.AppFood.Project.Service.BillService;
+//import org.springframework.http.ResponseEntity;
+//import org.springframework.stereotype.Service;
 
 /*@Service
 public class BillserviceImple implements BillService
@@ -22,8 +22,7 @@ public class BillserviceImple implements BillService
 
     }
 
-
-
-
 }
 */
+
+

@@ -1,4 +1,4 @@
-package com.AppFood.Project.Service;
+//package com.AppFood.Project.Service;
 
-//public interface BillService {
-}
+//public interface BillService
+

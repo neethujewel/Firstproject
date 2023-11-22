@@ -10,5 +10,6 @@ public class AppFoodProjectApplication {
 	{
 		SpringApplication.run(AppFoodProjectApplication.class, args);
 
+
 	}
 }
